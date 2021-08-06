@@ -9,7 +9,7 @@ import PokemonsContext from "../contexts/PokemonsContext";
 
 export default function MyPokemons() {
     const { pokemons } = useContext(PokemonsContext);
-    const myPokemons = pokemons?.filter(pokemon => pokemon.inMyPokemons);
+    const myPokemons = pokemons?.filter(pokemon => pokemon.inMyPokemon);
 
     return (
         <>
@@ -18,7 +18,7 @@ export default function MyPokemons() {
             <Container>
                 {pokemons === null && "Loading..."}
                 {myPokemons && myPokemons.length === 0 && "No Pokémon found!"}
-                {myPokemons && myPokemons.filter(pokemon => pokemon.inMyPokemons).map(p => <PokemonButton pokemon={p} key={p.name} />)}
+                {myPokemons && myPokemons.filter(pokemon => pokemon.inMyPokemon).map(p => <PokemonButton pokemon={p} key={p.name} />)}
             </Container>
 
             <Footer currentPage="my-pokemons" />

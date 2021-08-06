@@ -23,7 +23,7 @@ export default function PokemonPage() {
     }, [id, pokemons]);
 
     function togglePokemon() {
-        if (pokemon.inMyPokemons) {
+        if (pokemon.inMyPokemon) {
             axios.post(`${process.env.REACT_APP_API_BASE_URL}/my-pokemons/${id}/remove`, null, {
                 headers: {
                     Authorization: `Bearer ${token.token}`
@@ -96,7 +96,7 @@ export default function PokemonPage() {
                                 </Row>
                             </Section>
 
-                            <Button onClick={togglePokemon}>{pokemon.inMyPokemons ? 'Remove from' : 'Add to'} My Pokémons</Button>
+                            <Button onClick={togglePokemon}>{pokemon.inMyPokemon ? 'Remove from' : 'Add to'} My Pokémons</Button>
                         </>
                 }
             </Container>
